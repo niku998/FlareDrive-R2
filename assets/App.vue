@@ -595,9 +595,9 @@ export default {
             : url.searchParams.delete("p");
           window.history.pushState(null, "", url.toString());
         }
-        document.title = this.cwd.replace(/.*\/(?!$)|\//g, "") === "/" 
-            ? "主页 - CxDrive网盘文库"
-            :`${this.cwd.replace(/.*\/(?!$)|\//g, "") || "/" } - CxDrive网盘文库`;
+		document.title = this.cwd === "/"
+			  ? "主页 - CxDrive网盘文库"
+			  : `${this.cwd.split("/").filter(Boolean).pop() || "/"} - CxDrive网盘文库`;
       },
       immediate: true,
     },
