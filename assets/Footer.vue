@@ -39,7 +39,7 @@ export default {
       homeUrl: "",
       blogUrl: "",
       githubUrl: "",
-      emailUrl: ""
+      emailUrl: "",
     pv: "😯",
       uv: "😯",
       storageKey: "vercount_stats"
