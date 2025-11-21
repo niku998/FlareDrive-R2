@@ -16,7 +16,7 @@
     </div>
 
     <div class="stats">
-      访问次数：<span id="vercount_value_site_pv">{{ pv }}</span>次 | 访客人数：<span id="vercount_value_site_uv">{{ uv }}</span>人
+      访问次数：<span id="vercount_value_site_pv">😯</span>次 | 访客人数：<span id="vercount_value_site_uv">😯</span>人
     </div>
 
 	<div class="project-links">
@@ -39,43 +39,9 @@ export default {
       homeUrl: "",
       blogUrl: "",
       githubUrl: "",
-      emailUrl: "",
-	  pv: "😯",
-      uv: "😯",
-      storageKey: "vercount_stats"
+      emailUrl: ""
     };
-  },
-  mounted() {
-    // 1. 读缓存
-    const saved = localStorage.getItem(this.storageKey);
-    if (saved) {
-      try {
-        const obj = JSON.parse(saved);
-        if (obj.pv !== undefined) this.pv = obj.pv;
-        if (obj.uv !== undefined) this.uv = obj.uv;
-      } catch (e) {
-        console.warn("读取 vercount 本地缓存失败", e);
-      }
-    }
-
-    // 2. 延迟检查 span 是否被 Vercount 更新
-    setTimeout(() => {
-      const elPv = document.getElementById("vercount_value_site_pv");
-      const elUv = document.getElementById("vercount_value_site_uv");
-      if (elPv && elPv.innerText && elPv.innerText !== "😯") {
-        this.pv = elPv.innerText;
-      }
-      if (elUv && elUv.innerText && elUv.innerText !== "😯") {
-        this.uv = elUv.innerText;
-      }
-
-      // 3. 写回缓存
-      localStorage.setItem(this.storageKey, JSON.stringify({
-        pv: this.pv,
-        uv: this.uv
-      }));
-    }, 1000);
-  },
+  }
 };
 </script>
 
